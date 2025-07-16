@@ -42,7 +42,7 @@ public class FP03FunctionalInterfaces {
             return number < 10 && str.length() > 5;
         };
 
-        System.out.println(biPredicate.test(11, "Holiboli"));
+        System.out.println(biPredicate.test(11, "Hello"));
 
         BiFunction<Integer, String, String> biFunction = (number, str) -> {
             return number + " " + str;
