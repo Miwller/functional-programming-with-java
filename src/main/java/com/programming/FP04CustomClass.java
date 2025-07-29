@@ -196,6 +196,18 @@ public class FP04CustomClass {
                         .mapToInt(value -> value + 1)
                         .min());
 
+//        List<Course> courses = List.of(
+//                new Course("Spring", "Framework", 98, 20000),
+//                new Course("Spring Boot", "Framework", 95, 18000),
+//                new Course("AP", "Microservices", 97, 22000),
+//                new Course("Microservices", "Microservices", 96, 25000),
+//                new Course("FullStack", "FullStack", 91, 14000),
+//                new Course("AWS", "Cloud", 92, 21000),
+//                new Course("Azure", "Cloud", 99, 21000),
+//                new Course("Docker", "Cloud", 92, 20000),
+//                new Course("Kubernetes", "Cloud", 91, 20000)
+//        );
+
         System.out.println(
             courses.stream()
                     .collect(Collectors.groupingBy(Course::getCategory)));
@@ -228,6 +240,15 @@ public class FP04CustomClass {
         // Microservices=[AP, Microservices],
         // Framework=[Spring, Spring Boot]}
 
+        Predicate<Course> reviewScoreGreaterThan95Predicate2 = createPredicateWithCutoffReviewScore(95);
+        Predicate<Course> reviewScoreGreaterThan90Predicate2 = createPredicateWithCutoffReviewScore(90);
+
+
+
+    }
+
+    private static Predicate<Course> createPredicateWithCutoffReviewScore(int cutoffReviewScore) {
+        return course -> course.getReviewScore() > cutoffReviewScore;
     }
 
 }
